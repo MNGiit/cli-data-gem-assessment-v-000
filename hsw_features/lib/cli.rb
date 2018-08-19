@@ -1,4 +1,5 @@
 require_relative "../lib/articles.rb"
+require_relative "../lib/scraper.rb"
 require 'pry'
 class CommandLineInterface
   
@@ -6,10 +7,21 @@ class CommandLineInterface
     "Greetings! Below are the currently featured articles on howstuffworks.com!"
   end
   
-  def print_articles
-    
-  end
+  #def print_articles
+   # Articles.each do |article|
+    #  puts article.title
+     # puts article.blurb
+      #puts ""
+    #end
+  #end
 
+  def scrape_for_featured_articles
+    Scraper.new
+  end
+  
+  def show_proof
+    Articles.all
+  end
   
 end
 
