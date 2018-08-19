@@ -1,3 +1,5 @@
+require_relative "../lib/articles.rb"
+#Dir["/path/to/directory/*.rb"].each {|file| require file }
 require 'nokogiri'
 require 'open-uri'
 require 'pry'
@@ -11,6 +13,7 @@ class Scraper
     @titles = titles
     @blurbs = blurbs
     @urls = add_urls
+    self.create_article
   end
   
   def hsw
@@ -41,6 +44,17 @@ class Scraper
     url_duplicate_remover.reject.with_index { |element, index| index >=1 && index <= 2 }
   end
   
+  #Need methods to store scraped info into class Articles
+  def create_article
+    5.times do |i|
+      Articles.new(titles[i], blurbs[i], urls[i])
+    end
+  end
+  
+  def show
+    Articles.all
+  end
+  
 end
 
 
@@ -48,4 +62,5 @@ x = Scraper.new
 #testing out arrays
 y = [ 0, 1, 2]
 z = 3
+#nyt = Articles.new
 binding.pry
