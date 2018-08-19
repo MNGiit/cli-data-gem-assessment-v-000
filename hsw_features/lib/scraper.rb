@@ -10,7 +10,7 @@ class Scraper
   def initialize
     @titles = titles
     @blurbs = blurbs
-    @urls = url_duplicate_remover
+    @urls = add_urls
   end
   
   def hsw
@@ -29,12 +29,16 @@ class Scraper
     search.css(".blurb").map { |item| item.text}
   end
   
-  def urls
+  def get_urls
     hsw.css("#module-features").css("a").map { |item| item.attribute('href').value }
   end
   
   def url_duplicate_remover
-    urls.uniq
+    get_urls.uniq
+  end
+  
+  def add_urls
+    url_duplicate_remover.reject.with_index { |element, index| index >=1 && index <= 2 }
   end
   
 end
