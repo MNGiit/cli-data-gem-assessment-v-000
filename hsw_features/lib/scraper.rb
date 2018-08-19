@@ -64,6 +64,9 @@ class Scraper
   
   #Unforunately some of my old code isn't here...
   
+  def go_to_url(address = "https://health.howstuffworks.com/mental-health/sleep/disorders/why-people-fall-asleep-movie-theaters.htm")
+    Nokogiri::HTML(open(address))
+  end
   
 end
 
