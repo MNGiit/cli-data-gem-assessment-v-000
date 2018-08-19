@@ -3,6 +3,7 @@ require_relative "../lib/articles.rb"
 require 'nokogiri'
 require 'open-uri'
 require 'pry'
+
 class Scraper
   
   attr_accessor :titles, :blurbs, :urls
@@ -14,6 +15,7 @@ class Scraper
     @blurbs = blurbs
     @urls = add_urls
     self.create_article
+    @urls = urls
   end
   
   def hsw
@@ -55,6 +57,14 @@ class Scraper
     Articles.all
   end
   
+  def urls
+    #features = doc.css("#module-features").css("div")
+    search.css("a href").map { |item| item.value}
+  end
+  
+  #Unforunately some of my old code isn't here...
+  
+  
 end
 
 
@@ -64,3 +74,6 @@ y = [ 0, 1, 2]
 z = 3
 #nyt = Articles.new
 binding.pry
+
+#HISTORY
+#git commit -m "Added titles and blurbs."
