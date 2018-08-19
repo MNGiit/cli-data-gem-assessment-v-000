@@ -30,8 +30,7 @@ class Scraper
   end
   
   def urls
-    #features = doc.css("#module-features").css("div")
-    search.css("a href").map { |item| item.value}
+    hsw.css("#module-features").css("a").map { |item| item.attribute('href').value }
   end
   
 end
