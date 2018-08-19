@@ -10,7 +10,7 @@ class Scraper
   def initialize
     @titles = titles
     @blurbs = blurbs
-    @urls = urls
+    @urls = url_duplicate_remover
   end
   
   def hsw
@@ -33,6 +33,10 @@ class Scraper
     hsw.css("#module-features").css("a").map { |item| item.attribute('href').value }
   end
   
+  def url_duplicate_remover
+    urls.uniq
+  end
+  
 end
 
 
@@ -41,7 +45,3 @@ x = Scraper.new
 y = [ 0, 1, 2]
 z = 3
 binding.pry
-
-
-#HISTORY
-#git commit -m "Added titles and blurbs."
