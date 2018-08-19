@@ -15,7 +15,7 @@ class Scraper
     @blurbs = blurbs
     @urls = add_urls
     self.create_article
-    @urls = urls
+    #@urls = urls
   end
   
   def hsw
@@ -90,7 +90,7 @@ x = Scraper.new
 y = [ 0, 1, 2]
 z = 3
 #nyt = Articles.new
-binding.pry
+#binding.pry
 
 #HISTORY
 #git commit -m "Added titles and blurbs."
