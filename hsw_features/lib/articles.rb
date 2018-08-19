@@ -1,7 +1,6 @@
 require 'pry'
 class Articles
-  attr_accessor :title, :blurb, :url
-  
+  attr_accessor :title, :blurb, :url, :content
   @@all = []
   
   def initialize (title = nil, blurb = nil, url = nil)
@@ -14,12 +13,10 @@ class Articles
   def self.all
     @@all
   end
-  
+
 end
 
-#puts "Hello World!"
 #x = Articles.new("Hello World!", "So I want to be a webdev...", "www.learn.co")
-#binding.pry
+binding.pry
 
-#HISTORY
-#git commit -m "Added 3 instance variables for Class Articles"
+
