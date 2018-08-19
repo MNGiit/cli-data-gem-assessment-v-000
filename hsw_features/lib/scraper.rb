@@ -64,8 +64,16 @@ class Scraper
   
   #Unforunately some of my old code isn't here...
   
-  def go_to_url(address = "https://health.howstuffworks.com/mental-health/sleep/disorders/why-people-fall-asleep-movie-theaters.htm")
+  def go_to(address = "https://health.howstuffworks.com/mental-health/sleep/disorders/why-people-fall-asleep-movie-theaters.htm")
     Nokogiri::HTML(open(address))
+  end
+  
+  def get_paragraphs
+    go_to.css(".infinite-item").css("p").text
+  end
+  
+  def get_title
+    go_to.css("h1").text
   end
   
 end
