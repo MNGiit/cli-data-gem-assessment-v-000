@@ -6,7 +6,7 @@ require 'pry'
 
 class Scraper
   
-  attr_accessor :titles, :blurbs, :urls
+  attr_accessor :titles, :blurbs, :urls, :check_title
   BASE_URL = "https://www.howstuffworks.com/"
   #attr_accessor :doc, :titles
   
@@ -68,12 +68,18 @@ class Scraper
     Nokogiri::HTML(open(address))
   end
   
-  def get_paragraphs
+  def add_content
     go_to.css(".infinite-item").css("p").text
   end
   
   def get_title
-    go_to.css("h1").text
+    @check_title = go_to.css("h1").text
+  end
+  
+  def add_content_to_article
+    Articles.all.each do |article|
+      article.content = add_content if @check_title == article.title
+    end
   end
   
 end
