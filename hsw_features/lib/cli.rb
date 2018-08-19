@@ -7,16 +7,17 @@ class CommandLineInterface
     puts "Greetings! Below are the currently featured articles on howstuffworks.com!"
   end
   
-  #def print_articles
-   # Articles.each do |article|
-    #  puts article.title
-     # puts article.blurb
-      #puts ""
-    #end
-  #end
+  def print_articles
+    Articles.all.each do |article|
+      puts article.title
+      puts article.blurb
+      puts ""
+    end
+  end
 
   def scrape_for_featured_articles
     Scraper.new
+    return nil
   end
   
   def show_proof
@@ -26,6 +27,7 @@ class CommandLineInterface
   def run
     greetings
     scrape_for_featured_articles
+    print_articles
   end
   
 end
