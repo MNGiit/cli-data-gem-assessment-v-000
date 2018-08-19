@@ -4,7 +4,7 @@ require 'pry'
 class CommandLineInterface
   
   def greetings
-    "Greetings! Below are the currently featured articles on howstuffworks.com!"
+    puts "Greetings! Below are the currently featured articles on howstuffworks.com!"
   end
   
   #def print_articles
@@ -21,6 +21,11 @@ class CommandLineInterface
   
   def show_proof
     Articles.all
+  end
+  
+  def run
+    greetings
+    scrape_for_featured_articles
   end
   
 end
