@@ -1,3 +1,4 @@
+require_relative "../lib/articles.rb"
 require 'pry'
 class CommandLineInterface
   
