@@ -18,8 +18,8 @@ class Articles
 end
 
 #puts "Hello World!"
-x = Articles.new("Hello World!", "So I want to be a webdev...", "www.learn.co")
-binding.pry
+#x = Articles.new("Hello World!", "So I want to be a webdev...", "www.learn.co")
+#binding.pry
 
 #HISTORY
 #git commit -m "Added 3 instance variables for Class Articles"

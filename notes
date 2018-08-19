@@ -1,0 +1,21 @@
+# Correct way to initialize a new Git repository
+# git init
+
+# Check status of Git
+# git status
+
+# Command will stage your entire directory and every non-empty directory inside your current directory
+# git add
+# Example
+# git add index.html
+
+# Use git status to see unsaved changes THEN use git commit -m "COMMENT-HERE"
+# Example
+# git commit -m "adding new authors to index"
+
+#hsw_features
+
+# This program will scrape the "Features" section of howstuffworks.com
+#the html code is
+#module-features
+#scrape this sort of info: title, and blurb (for now?)
