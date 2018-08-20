@@ -3,6 +3,8 @@ require_relative "../lib/scraper.rb"
 require 'pry'
 class CommandLineInterface
   
+  attr_accessor :scraped
+  
   def greetings
     puts "Greetings! Below are the currently featured articles on howstuffworks.com!"
   end
@@ -16,7 +18,7 @@ class CommandLineInterface
   end
 
   def scrape_for_featured_articles
-    Scraper.new
+    @scraped = Scraper.new
     return nil
   end
   
@@ -30,13 +32,20 @@ class CommandLineInterface
     print_articles
   end
   
+  def scrape_selected_article(selected)
+    @scraped.add_content_to_article(selected)
+  end  
+  
 end
 
-x = CommandLineInterface.new
-binding.pry
 
-#greet the user
-#print five articles
-#the print should be article name, new line, blurb, new line, and repeat
-#ask the user which article they want
-#print article, or provide link?
+#practice zone
+##############
+##############
+
+x = CommandLineInterface.new
+x.scrape_for_featured_articles
+y = Articles.all[0]
+#x.scrape_selected_article(y)
+puts y.content
+binding.pry
