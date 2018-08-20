@@ -15,8 +15,3 @@ class Articles
   end
 
 end
-
-#x = Articles.new("Hello World!", "So I want to be a webdev...", "www.learn.co")
-#binding.pry
-
-
