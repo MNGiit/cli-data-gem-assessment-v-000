@@ -5,6 +5,10 @@ class CommandLineInterface
   
   attr_accessor :scraped
   
+  def initialize
+    scrape_for_featured_articles
+  end
+  
   def greetings
     puts "Greetings! Below are the currently featured articles on howstuffworks.com!"
   end
@@ -19,18 +23,12 @@ class CommandLineInterface
 
   def scrape_for_featured_articles
     @scraped = Scraper.new
-    return nil
-  end
-  
-  def run
-    greetings
-    scrape_for_featured_articles
-    print_articles
   end
   
   def scrape_selected_article(selected)
     @scraped.add_content_to_article(selected)
-  end  
+  end
+  
 ##experimented and it works 
   def ask_user_to_pick_article
     "Please enter a number between 1 to 5."
@@ -62,17 +60,30 @@ class CommandLineInterface
     input = convert_to_i(user_input)
     validating_loop(input)
   end
-##experimenting
+##experimented and it works 
 
   def ask_user_read_another
     puts "Want to read another article? Enter 1 to see the list again. Enter anything else to quit."
   end
   
+##experimenting  
   def pick_another_article?
     ask_user_read_another
     number = convert_to_i(get_user_input)
     print_articles if number == 1
     pick_article if number == 1
+  end
+  
+  def run
+    continue = true
+    greetings
+    while continue == true
+      print_articles
+      pick_article
+      ask_user_read_another
+      number = convert_to_i(get_user_input)
+      continue = false if number != 1
+    end
   end
   
 end
@@ -82,11 +93,8 @@ end
 ##############
 ##############
 
-x = CommandLineInterface.new
-x.scrape_for_featured_articles
-y = Articles.all[0]
-#x.scrape_selected_article(y)
-puts y.content
+#x = CommandLineInterface.new
+
 binding.pry
 
 ##experimenting...again!  
