@@ -1,0 +1,15 @@
+def get_input
+  gets.strip
+end
+
+def validate(get_input)
+  if get_input <= 5 && get_input >= 1
+    puts "Next step is..."
+  else
+    get_input
+  end
+end
+
+def display_article(input)
+  puts Articles.all[input].content
+end

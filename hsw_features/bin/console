@@ -12,3 +12,5 @@ require "hsw_features"
 
 require "irb"
 IRB.start(__FILE__)
+
+CommandLineInterface.new.run

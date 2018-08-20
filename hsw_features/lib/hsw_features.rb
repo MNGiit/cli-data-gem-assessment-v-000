@@ -37,4 +37,3 @@ arr_two = arr_one.uniq
 # Going to want an Object to handle this data
 # the class will be called...Articles
 
-binding.pry
