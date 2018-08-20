@@ -46,7 +46,6 @@ class Scraper
     url_duplicate_remover.reject.with_index { |element, index| index >=1 && index <= 2 }
   end
   
-  #Need methods to store scraped info into class Articles
   def create_article
     5.times do |i|
       Articles.new(titles[i], blurbs[i], urls[i])
@@ -57,13 +56,6 @@ class Scraper
     Articles.all
   end
   
-  def urls
-    #features = doc.css("#module-features").css("div")
-    search.css("a href").map { |item| item.value}
-  end
-  
-  #Unforunately some of my old code isn't here...
-  
   def go_to(address = "https://health.howstuffworks.com/mental-health/sleep/disorders/why-people-fall-asleep-movie-theaters.htm")
     Nokogiri::HTML(open(address))
   end
@@ -72,25 +64,34 @@ class Scraper
     go_to.css(".infinite-item").css("p").text
   end
   
-  def get_title
-    @check_title = go_to.css("h1").text
-  end
-  
-  def add_content_to_article
-    Articles.all.each do |article|
-      article.content = add_content if @check_title == article.title
-    end
+  def new_add_content_to_article(article)
+    doc = go_to(article.url)
+    article.content = doc.css(".infinite-item").css("p").text
   end
   
 end
 
+#practice zone
+##############
+##############
 
 x = Scraper.new
-#testing out arrays
-y = [ 0, 1, 2]
-z = 3
-#nyt = Articles.new
-#binding.pry
+#x.new_add_content_to_article(Article.all[0])
+
+binding.pry
 
 #HISTORY
 #git commit -m "Added titles and blurbs."
+
+
+#old code
+#don't need it anymore I think
+#  def get_title
+#    @check_title = go_to.css("h1").text
+#  end
+#  
+#  def add_content_to_article
+#    Articles.all.each do |article|
+#      article.content = add_content if @check_title == article.title
+#    end
+#  end
