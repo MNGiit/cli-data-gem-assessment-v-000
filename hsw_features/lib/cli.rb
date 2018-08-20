@@ -10,7 +10,8 @@ class CommandLineInterface
   end
   
   def greetings
-    puts "Greetings! Below are the currently featured articles on howstuffworks.com!"
+    puts "Greetings! Below are articles currently featured on howstuffworks.com!"
+    puts ""
   end
   
   def print_articles
@@ -55,6 +56,7 @@ class CommandLineInterface
   end
   
   def pick_article
+    puts ""
     puts ask_user_to_pick_article
     user_input = get_user_input
     input = convert_to_i(user_input)
@@ -63,6 +65,7 @@ class CommandLineInterface
 ##experimented and it works 
 
   def ask_user_read_another
+    puts ""
     puts "Want to read another article? Enter 1 to see the list again. Enter anything else to quit."
   end
   
@@ -95,7 +98,7 @@ end
 
 #x = CommandLineInterface.new
 
-binding.pry
+#binding.pry
 
 ##experimenting...again!  
   #def check_article_for_contents(input)
