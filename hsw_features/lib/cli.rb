@@ -30,7 +30,6 @@ class CommandLineInterface
     @scraped.add_content_to_article(selected)
   end
   
-##experimented and it works 
   def ask_user_to_pick_article
     "Please enter a number between 1 to 5."
   end
@@ -62,14 +61,12 @@ class CommandLineInterface
     input = convert_to_i(user_input)
     validating_loop(input)
   end
-##experimented and it works 
 
   def ask_user_read_another
     puts ""
     puts "Want to read another article? Enter 1 to see the list again. Enter anything else to quit."
   end
   
-##experimenting  
   def pick_another_article?
     ask_user_read_another
     number = convert_to_i(get_user_input)
@@ -90,20 +87,3 @@ class CommandLineInterface
   end
   
 end
-
-
-#practice zone
-##############
-##############
-
-#x = CommandLineInterface.new
-
-#binding.pry
-
-##experimenting...again!  
-  #def check_article_for_contents(input)
-  #  article = Articles.all[input-1]
-  #  article.content == nil?
-  #  #puts article.content if article.content != nil
-  #end
-
