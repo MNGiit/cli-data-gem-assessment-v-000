@@ -60,38 +60,9 @@ class Scraper
     Nokogiri::HTML(open(address))
   end
   
-  def add_content
-    go_to.css(".infinite-item").css("p").text
-  end
-  
-  def new_add_content_to_article(article)
+  def add_content_to_article(article)
     doc = go_to(article.url)
     article.content = doc.css(".infinite-item").css("p").text
   end
   
 end
-
-#practice zone
-##############
-##############
-
-x = Scraper.new
-#x.new_add_content_to_article(Article.all[0])
-
-binding.pry
-
-#HISTORY
-#git commit -m "Added titles and blurbs."
-
-
-#old code
-#don't need it anymore I think
-#  def get_title
-#    @check_title = go_to.css("h1").text
-#  end
-#  
-#  def add_content_to_article
-#    Articles.all.each do |article|
-#      article.content = add_content if @check_title == article.title
-#    end
-#  end
