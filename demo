@@ -1,0 +1,9 @@
+Hello world!
+
+This project can go to www.howstuffworks.com, and scrape featured articles. There are five featured articles to scrape. It will first scrape the titles, blurbs, and urls. The user will be asked to pick which article they want to read. They make this choice after seeing a list of titles and blurbs. When the user picks an article, it will then use the url and scrape the body of the article itself. The user will then be able to read the article, and will be asked if they want to read anymore articles.
+
+To get this started, just run the file called run, inside bin.
+
+ruby hsw_features/bin/run
+
+After running that line of code, it will show five articles. Pick by entering a number between 1 to 5. After that it will show the article, and ask to continue picking another article to read or quit. To pick another article to read, enter the number 1. Anything else will cause it to quit.

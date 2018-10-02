@@ -1,6 +1,3 @@
-require_relative "../lib/articles.rb"
-require_relative "../lib/scraper.rb"
-require 'pry'
 class CommandLineInterface
   
   attr_accessor :scraped
@@ -15,10 +12,12 @@ class CommandLineInterface
   end
   
   def print_articles
-    Articles.all.each do |article|
-      puts article.title
+    i = 1
+    Articles.all.each_with_index do |article, i|
+      puts "#{i+1} #{article.title}"
       puts article.blurb
       puts ""
+      i=+1
     end
   end
 

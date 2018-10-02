@@ -1,21 +1,13 @@
-require_relative "../lib/articles.rb"
-#Dir["/path/to/directory/*.rb"].each {|file| require file }
-require 'nokogiri'
-require 'open-uri'
-require 'pry'
-
 class Scraper
   
   attr_accessor :titles, :blurbs, :urls, :check_title
   BASE_URL = "https://www.howstuffworks.com/"
-  #attr_accessor :doc, :titles
-  
+
   def initialize
-    @titles = titles
-    @blurbs = blurbs
-    @urls = add_urls
+    #@titles = titles
+    #@blurbs = blurbs
+    #@urls = add_urls
     self.create_article
-    #@urls = urls
   end
   
   def hsw
@@ -47,8 +39,12 @@ class Scraper
   end
   
   def create_article
-    5.times do |i|
-      Articles.new(titles[i], blurbs[i], urls[i])
+    search.each do |i|
+      title = i.css(".title").text
+      blurb = i.css(".blurb").text
+      url = i.css("a").attribute("href").value
+      Articles.new(title, blurb, url) if (title != nil && blurb != nil && url != nil)
+      #binding.pry
     end
   end
   
@@ -56,7 +52,8 @@ class Scraper
     Articles.all
   end
   
-  def go_to(address = "https://health.howstuffworks.com/mental-health/sleep/disorders/why-people-fall-asleep-movie-theaters.htm")
+  def go_to(address)
+    puts "******Scraping*******"
     Nokogiri::HTML(open(address))
   end
   
@@ -66,3 +63,6 @@ class Scraper
   end
   
 end
+
+
+

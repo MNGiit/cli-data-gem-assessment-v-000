@@ -1,8 +1,8 @@
 # HswFeatures
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/hsw_features`. To experiment with that code, run `bin/console` for an interactive prompt.
+Welcome to HswFeatures! HswFeatures is a gem that scrapes howstuffworks.com for it's featured articles!
 
-TODO: Delete this and the text above, and describe your gem
+Simply run the gem to get a list of featured articles. Then enter a number to read the article. Want to read another? The gem will ask to present the list again or quit.
 
 ## Installation
 
